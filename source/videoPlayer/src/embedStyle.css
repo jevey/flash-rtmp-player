@@ -1,0 +1,244 @@
+Canvas.playerWrap{
+	background-color: #161616;
+}
+
+
+
+ToolTip{
+    font-family:            verdana;
+    font-size:              10px;
+    color:                  #aaaaaa;
+    background-color:       #040404;
+    background-alpha:       0.4;
+}
+
+Canvas.videoControls{
+	
+	background-image: Embed('assets/player/playerCtrlBg.png');
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+}
+
+Canvas.qualityBar{
+	
+	background-image: Embed('assets/player/qualityBar.png');
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+}
+
+Label.noVideoLabel{
+	fontFamily: "Myriad Pro";
+	font-size: 18;
+	color: White;
+	horizontal-center: 0;
+	vertical-center: 0;
+}
+
+HBox.videoWindow{
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	horizontal-gap: 0;
+}
+
+Canvas.staticFrameBg{
+	background-color: Black;
+	background-alpha: 0.5;
+}
+
+Button.fullScreenButton{
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	horizontal-gap: 0;
+	up-skin: Embed(source="assets/player/fullscreen.png", mimeType="image/png");
+	over-skin: Embed(source="assets/player/fullscreen.png", mimeType="image/png");
+	down-skin: Embed(source="assets/player/fullscreen.png", mimeType="image/png");
+	disabled-skin: Embed(source="assets/player/fullscreen.png", mimeType="image/png");
+	selected-up-skin: Embed(source="assets/player/fullscreen.png", mimeType="image/png");
+	selected-over-skin: Embed(source="assets/player/fullscreen.png", mimeType="image/png");
+	selected-down-skin: Embed(source="assets/player/fullscreen.png", mimeType="image/png");
+	selected-disabled-skin: Embed(source="assets/player/fullscreen.png", mimeType="image/png");
+}
+Canvas.fullscreenPlayerHolder{
+	background-color: Black;
+}
+
+Button.playButton{
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	horizontal-gap: 0;
+	up-skin: Embed(source="assets/player/playerCtrlPlayBtnUp.png", mimeType="image/png");
+	over-skin: Embed(source="assets/player/playerCtrlPlayBtnOver.png", mimeType="image/png");
+	down-skin: Embed(source="assets/player/playerCtrlPlayBtnDown.png", mimeType="image/png");
+	disabled-skin: Embed(source="assets/player/playerCtrlPlayBtnDisabled.png", mimeType="image/png");
+	selected-up-skin: Embed(source="assets/player/playerCtrlPlayBtnUp.png", mimeType="image/png");
+	selected-over-skin: Embed(source="assets/player/playerCtrlPlayBtnOver.png", mimeType="image/png");
+	selected-down-skin: Embed(source="assets/player/playerCtrlPlayBtnDown.png", mimeType="image/png");
+	selected-disabled-skin: Embed(source="assets/player/playerCtrlPlayBtnDisabled.png", mimeType="image/png");
+}
+
+Button.pauseButton{
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	horizontal-gap: 0;
+	up-skin: Embed(source="assets/player/playerCtrlPauseBtnUp.png", mimeType="image/png");
+	over-skin: Embed(source="assets/player/playerCtrlPauseBtnOver.png", mimeType="image/png");
+	down-skin: Embed(source="assets/player/playerCtrlPauseBtnDown.png", mimeType="image/png");
+	disabled-skin: Embed(source="assets/player/playerCtrlPlayBtnDisabled.png", mimeType="image/png");
+	selected-up-skin: Embed(source="assets/player/playerCtrlPauseBtnUp.png", mimeType="image/png");
+	selected-over-skin: Embed(source="assets/player/playerCtrlPauseBtnOver.png", mimeType="image/png");
+	selected-down-skin: Embed(source="assets/player/playerCtrlPauseBtnDown.png", mimeType="image/png");
+	selected-disabled-skin: Embed(source="assets/player/playerCtrlPlayBtnDisabled.png", mimeType="image/png");
+}
+Button.reverseButton{
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	horizontal-gap: 0;
+	up-skin: Embed(source="assets/player/playerCtrlReverseBtnUp.png", mimeType="image/png");
+	over-skin: Embed(source="assets/player/playerctrlReverseBtnOver.png", mimeType="image/png");
+	down-skin: Embed(source="assets/player/playerctrlReverseBtnDown.png", mimeType="image/png");
+	disabled-skin: Embed(source="assets/player/playerctrlReverseBtnDisabled.png", mimeType="image/png");
+	selected-up-skin: Embed(source="assets/player/playerctrlReverseBtnUp.png", mimeType="image/png");
+	selected-over-skin: Embed(source="assets/player/playerctrlReverseBtnOver.png", mimeType="image/png");
+	selected-down-skin: Embed(source="assets/player/playerctrlReverseBtnDown.png", mimeType="image/png");
+	selected-disabled-skin: Embed(source="assets/player/playerctrlReverseBtnDisabled.png", mimeType="image/png");
+}
+
+Button.QualityUpButton{
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	horizontal-gap: 0;
+	up-skin: Embed(source="assets/player/playerctrlQualityUp.png", mimeType="image/png");
+	over-skin: Embed(source="assets/player/playerctrlQualityUpMouseUp.png", mimeType="image/png");
+	down-skin: Embed(source="assets/player/playerctrlQualityUp.png", mimeType="image/png");
+	disabled-skin: Embed(source="assets/player/playerctrlQualityUpDisable.png", mimeType="image/png");
+	selected-up-skin: Embed(source="assets/player/playerctrlQualityUp.png", mimeType="image/png");
+	selected-over-skin: Embed(source="assets/player/playerctrlQualityUpMouseUp.png", mimeType="image/png");
+	selected-down-skin: Embed(source="assets/player/playerctrlQualityUp.png", mimeType="image/png");
+	selected-disabled-skin: Embed(source="assets/player/playerctrlQualityUpDisable.png", mimeType="image/png");
+}
+
+Button.QualityDownButton{
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	horizontal-gap: 0;
+	up-skin: Embed(source="assets/player/playerctrlQualityDown.png", mimeType="image/png");
+	over-skin: Embed(source="assets/player/playerctrlQualityDownMouseUp.png", mimeType="image/png");
+	down-skin: Embed(source="assets/player/playerctrlQualityDown.png", mimeType="image/png");
+	disabled-skin: Embed(source="assets/player/playerctrlQualityDownDisable.png", mimeType="image/png");
+	selected-up-skin: Embed(source="assets/player/playerctrlQualityDown.png", mimeType="image/png");
+	selected-over-skin: Embed(source="assets/player/playerctrlQualityDownMouseUp.png", mimeType="image/png");
+	selected-down-skin: Embed(source="assets/player/playerctrlQualityDown.png", mimeType="image/png");
+	selected-disabled-skin: Embed(source="assets/player/playerctrlQualityDownDisable.png", mimeType="image/png");
+}
+
+Button.muteButton{
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	horizontal-gap: 0;
+	up-skin: Embed(source="assets/player/playerCtrlVolumeBtnUp.png", mimeType="image/png");
+	over-skin: Embed(source="assets/player/playerctrlVolumeBtnOver.png", mimeType="image/png");
+	down-skin: Embed(source="assets/player/playerctrlVolumeBtnDown.png", mimeType="image/png");
+	disabled-skin: Embed(source="assets/player/playerctrlVolumeBtnDisabled.png", mimeType="image/png");
+	selected-up-skin: Embed(source="assets/player/playerctrlVolumeBtnUp.png", mimeType="image/png");
+	selected-over-skin: Embed(source="assets/player/playerctrlVolumeBtnOver.png", mimeType="image/png");
+	selected-down-skin: Embed(source="assets/player/playerctrlVolumeBtnDown.png", mimeType="image/png");
+	selected-disabled-skin: Embed(source="assets/player/playerctrlVolumeBtnDisabled.png", mimeType="image/png");
+}
+Button.muteButtonOn{
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	horizontal-gap: 0;
+	up-skin: Embed(source="assets/player/playerctrlVolumeBtnDown.png", mimeType="image/png");
+	over-skin: Embed(source="assets/player/playerctrlVolumeBtnOver.png", mimeType="image/png");
+	down-skin: Embed(source="assets/player/playerctrlVolumeBtnDown.png", mimeType="image/png");
+	disabled-skin: Embed(source="assets/player/playerctrlVolumeBtnDisabled.png", mimeType="image/png");
+	selected-up-skin: Embed(source="assets/player/playerctrlVolumeBtnUp.png", mimeType="image/png");
+	selected-over-skin: Embed(source="assets/player/playerctrlVolumeBtnOver.png", mimeType="image/png");
+	selected-down-skin: Embed(source="assets/player/playerctrlVolumeBtnDown.png", mimeType="image/png");
+	selected-disabled-skin: Embed(source="assets/player/playerctrlVolumeBtnDisabled.png", mimeType="image/png");
+}
+HSlider.progressBar{
+	thumb-up-skin: Embed(source="assets/player/SliderThumb.png", mimeType="image/png");
+	thumb-over-skin: Embed(source="assets/player/SliderThumb.png", mimeType="image/png");
+	thumb-down-skin: Embed(source="assets/player/SliderThumb.png", mimeType="image/png");
+	thumb-disabled-skin: Embed(source="assets/player/SliderThumbDisabled.png", mimeType="image/png");
+	track-highlight-skin:Embed(source="assets/player/sliderHighlight.png", mimeType="image/png");
+	thumb-offset: -5;
+	label-offset: 10;
+	data-tip-placement: bottom;
+	show-track-highlight: true;
+	
+}
+HSlider.qualityBar{
+	thumb-up-skin: Embed(source="assets/player/sliderHighlight.png", mimeType="image/png");
+	thumb-over-skin: Embed(source="assets/player/sliderHighlight.png", mimeType="image/png");
+	thumb-down-skin: Embed(source="assets/player/sliderHighlight.png", mimeType="image/png");
+	thumb-disabled-skin: Embed(source="assets/player/sliderHighlight.png", mimeType="image/png");
+	track-highlight-skin:Embed(source="assets/player/sliderHighlight.png", mimeType="image/png");
+	thumb-offset: -5;
+	label-offset: 10;
+	data-tip-placement: bottom;
+	show-track-highlight: true;
+	
+}
+
+HSlider.progressBarStatic{
+	thumb-up-skin: Embed(source="assets/player/SliderThumb.png", mimeType="image/png");
+	thumb-over-skin: Embed(source="assets/player/SliderThumb.png", mimeType="image/png");
+	thumb-down-skin: Embed(source="assets/player/SliderThumb.png", mimeType="image/png");
+	thumb-disabled-skin: Embed(source="assets/player/SliderThumbDisabled.png", mimeType="image/png");
+	track-highlight-skin:Embed(source="assets/player/SliderThumb.png", mimeType="image/png");
+	thumb-offset: 0;
+	label-offset: 10;
+	data-tip-placement: bottom;
+	
+}
+HSlider.volumeBar{
+	thumb-up-skin: Embed(source="assets/player/SliderThumb.png", mimeType="image/png");
+	thumb-over-skin: Embed(source="assets/player/SliderThumb.png", mimeType="image/png");
+	thumb-down-skin: Embed(source="assets/player/SliderThumb.png", mimeType="image/png");
+	thumb-disabled-skin: Embed(source="assets/player/SliderThumb.png", mimeType="image/png");
+	track-highlight-skin:Embed(source="assets/player/sliderHighlight.png", mimeType="image/png");
+	thumb-offset: -5;
+	label-offset: 10;
+	show-track-highlight: true;
+	data-tip-placement: bottom;
+}
+
+Button.securityErrorMesg{
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	horizontal-gap: 0;
+	up-skin: Embed(source="assets/ERROR_LocalSecurity.png", mimeType="image/png");
+	over-skin: Embed(source="assets/ERROR_LocalSecurity.png", mimeType="image/png");
+	down-skin: Embed(source="assets/ERROR_LocalSecurity.png", mimeType="image/png");
+	disabled-skin: Embed(source="assets/ERROR_LocalSecurity.png", mimeType="image/png");
+	selected-up-skin: Embed(source="assets/ERROR_LocalSecurity.png", mimeType="image/png");
+	selected-over-skin: Embed(source="assets/ERROR_LocalSecurity.png", mimeType="image/png");
+	selected-down-skin: Embed(source="assets/ERROR_LocalSecurity.png", mimeType="image/png");
+	selected-disabled-skin: Embed(source="assets/ERROR_LocalSecurity.png", mimeType="image/png");
+}

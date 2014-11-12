@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application horizontalScrollPolicy="off" verticalScrollPolicy="off"
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute" creationComplete="initVars();"
+	styleName="plain" backgroundColor="#000000"
+	xmlns:local="*" backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#010000, #010000]">
+
+<mx:Script>
+	<![CDATA[
+		
+		[Embed(source='assets/embed-satic.swf')]           
+         public static const SWF_PLAY:Class;
+         [Embed(source='assets/buffer.swf')]           
+         public static const SWF_BUFFER:Class;
+
+
+	]]>
+</mx:Script>
+<mx:Style source="embedStyle.css"></mx:Style>
+<mx:Script source = "player.as">
+</mx:Script>
+
+
+
+
+<mx:Canvas id="mainWrap" width="{swfWidth}" height="{swfHeight}" verticalScrollPolicy="off" horizontalScrollPolicy="off" >
+	<mx:Canvas id="playerWrap" styleName="playerWrap" width="{swfWidth}" height="{swfHeight}" verticalScrollPolicy="off" horizontalScrollPolicy="off"  backgroundColor="#000000">
+	
+		<mx:UIComponent id="container" x="{videoX}" y="{videoY}" 
+			width="{currentVideoW}" height="{currentVideoH}"/>
+			
+		<!-- displays security sandbox error -->			
+		<mx:Button id="securityMesgText" x="{0}" y="{0}"
+			 width="{swfWidth}" height="{(swfHeight)}" useHandCursor="true" buttonMode="true"
+			 visible="false" enabled="true" styleName="securityErrorMesg" click="openAdobeSecurityPage();"
+		/>
+			 
+		<mx:Button id="serverStatusMsgOverlay" x="{(swfWidth*0.1)/2}" y="{playerControlY - 50}" 
+		 width="90%" alpha="0.27" themeColor="#467491"  textAlign="center" label="" 
+		 visible="true" color="0xFFFFFF" enabled="false"
+		 />
+			
+		<mx:SWFLoader id="firstTimePlayBtn" visible="false" x="{swfWidth/2-40}" 
+			y="{swfHeight/2-40}" source="{SWF_PLAY}" 	useHandCursor="true" 
+			buttonMode="true" click="doPlayPause();" width="80" height="80"
+		/>
+		
+		<!--buffer indicator-->
+		<mx:SWFLoader id="bufferFrame" source="{SWF_BUFFER}" visible="false" 
+			x="{swfWidth/2-40}" y="{swfHeight/2-40}" useHandCursor="true" 
+			buttonMode="true" mouseChildren="false" 
+		/>
+		
+			<!-- Quality slider -->
+			<!--<mx:HSlider id="qualitySlider" styleName="qualityBar" width="70" height="10" 
+				allowTrackClick="false" liveDragging="false" minimum="0" maximum="100"
+			    trackSkin="{SliderVideoTrack}" x="370" y="{playerControlY + 7}" value="{qualityPercentage}"  
+			/>-->
+			
+		<mx:Button id="dsStreamStatusMesgBtn" visible="false" x="{swfWidth - 230}" y="{playerControlY - 25}"
+			width="220" textAlign="center" label="" enabled="false" alpha="0.99"
+		    focusAlpha="1.0" cornerRadius="0" color="YELLOW" fillColors="[#FFFF00, #FFFF00]"
+		/>
+		
+		<!--controls-->
+		<mx:Canvas id="playerControls" styleName="videoControls" x="{playerControlX}" y="{playerControlY}" 
+			width="{playerControlWidth}" height="{playerControlHeight}" visible="{isVideoControlVisible}"
+			>
+			
+			<mx:Button id="bPlayPause" enabled="true" styleName="playButton" click="doPlayPause();" 
+				width="42" height="{playerControlHeight-2}"  x="0" y="1"
+				useHandCursor="true" buttonMode="true" mouseChildren="false" toolTip="Play"
+	 		/>
+ 		
+ 			<!--progress scrubber:-->
+			<mx:ProgressBar id="progressBar" enabled="true" visible="true" mode="manual" minimum="0" 
+				indeterminate="false" barColor="0x3f5e71" trackColors="[ black, black ]"
+			    borderColor="#010101" width="277" height="10" x="60" y="7" trackHeight="10" 
+			     alpha="0.15" 
+			/> 
+			
+			<mx:HSlider id="slider" enabled="true" styleName="progressBar"
+				width="290" height="10" visible="false"   
+				allowTrackClick="true" dataTipFormatFunction="showScrubTime" dataTipPlacement="top"
+			 	thumbPress="toggleDragging(true)" thumbRelease="toggleDragging(false)"
+			    trackSkin="{SliderVideoTrack}"  x="49" y="7" toolTip="Seek"
+			/>
+			
+			<mx:Button id="bQualityDownBtn" enabled="true" styleName="QualityDownButton" click="onChangeQuality(false);"
+ 				 x="{342}" width="29" height="{playerControlHeight-2}" y="1"
+				 useHandCursor="true" buttonMode="true" mouseChildren="false" toolTip="Switch to lower Quality stream" 
+			/>	
+			
+			<mx:Button id="bQualityUpBtn" enabled="true" styleName="QualityUpButton" click="onChangeQuality(true);"
+ 				 x="{471}" width="29" height="{playerControlHeight-2}" y="1"
+				 useHandCursor="true" buttonMode="true" mouseChildren="false" toolTip="Switch to higher Quality stream"
+			/>
+			
+			<mx:Button id="bfullScreen" enabled="true" styleName="fullScreenButton" click="fullScreenHandler();"
+ 				 x="{500}" width="42" height="{playerControlHeight-2}" y="1"
+				 useHandCursor="true" buttonMode="true" mouseChildren="false" toolTip="Toggle Fullscreen"
+			/>
+			
+			<mx:Button id="bVolume" enabled="true" styleName="muteButton" click="doMute()" 
+				x="{541}" y="1" width="24" height="{playerControlHeight-2}" useHandCursor="true" buttonMode="true" 
+				mouseChildren="false" toolTip="Mute" />
+				
+			<mx:HSlider id="volumeSlider" styleName="volumeBar" x="{569}" y="7" width="68"
+				height="10" value="0.5" dataTipFormatFunction="showVolume" dataTipPlacement="top" minimum="0" 
+				maximum="1" change="changeVolume(event)" allowTrackClick="false" liveDragging="true"
+			    trackSkin="{SliderVolumeTrack}" toolTip="Volume" 
+			/>
+			
+			<!-- Quality slider -->
+			<mx:HSlider id="qualitySlider" styleName="qualityBar" width="70" height="10" 
+				allowTrackClick="false" liveDragging="false" minimum="0" maximum="100"
+			    trackSkin="{SliderQualityTrack}" x="371" y="7" value="{qualityPercentage}" 
+			    sliderThumbClass="{SliderQualityButton}"
+			/>
+		
+			<mx:Button id="HDBlinkBtn" visible="false" color="black" x="440" y="7"
+				 width="25" height="10"  fillAlphas="[1.0, 1.0]" fillColors="[#FFFFFF, #FFFFFF]"/>
+			
+			<mx:Canvas id="qualityBar" styleName="qualityBar" x="371"
+				width="100" height="{playerControlHeight}" visible="{isVideoControlVisible}" 
+				toolTip="{strQualityToolTip}"
+			/>
+			
+			<!--buffer indicator-->
+			<!-- <mx:SWFLoader id="bufferFrame" source="assets/buffer.swf" visible="true" x="320" y="187"/> -->
+		
+		</mx:Canvas>
+	</mx:Canvas>
+	
+	
+			
+		
+</mx:Canvas>
+
+
+
+						 
+<!--<mx:TextInput id="msgs" x="100" y="100" visible="true" />-->
+
+<mx:states>
+	<mx:State name="fullScreenState">
+		<mx:RemoveChild target="{bfullScreen}" />
+		<mx:SetProperty target="{slider}" name="width" value="100%" />
+	</mx:State>
+
+	<mx:State name="normalScreenState">
+		<mx:AddChild relativeTo="{playerControls}" position="firstChild" creationPolicy="auto" />
+	</mx:State>
+
+</mx:states>
+
+</mx:Application>

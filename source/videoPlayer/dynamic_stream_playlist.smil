@@ -1,0 +1,14 @@
+<smil>
+    <head>
+        <meta base="rtmp://localhost/vod/" />
+    </head>
+    <body>
+	<switch>
+		<video src="mp4:sample1_150kbps.f4v" system-bitrate="150000"/>
+		<video src="mp4:sample1_500kbps.f4v" system-bitrate="500000"/>
+		<video src="mp4:sample1_700kbps.f4v" system-bitrate="700000"/>
+		<video src="mp4:sample1_1000kbps.f4v" system-bitrate="1000000"/>
+		<video src="mp4:sample1_1500kbps.f4v" system-bitrate="1500000"/>
+        </switch>
+    </body>
+</smil>
